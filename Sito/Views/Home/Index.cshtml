@@ -1,0 +1,65 @@
+﻿@model List<Sito.ServiceReference1.Crociere>
+@{
+    ViewBag.Title = "Home Page";
+}
+@{ var utente = (Sito.ServiceReference1.Utente)Session["utenteAttivo"];}
+<div>
+    @Html.ValidationMessage("LogOnError", new { @class = "text-danger" })
+</div>
+<div class="jumbotron">
+    <h1>EXPERIENCE CRUISE</h1>
+    <p class="lead">Vivi l'avventura.</p>
+    @if (utente == null)
+    {
+        <p>@Html.ActionLink("Accedi prima di prenotare »", "Login", "Home", new { @class = "btn btn-primary btn-lg" })</p>
+    }
+    else
+    {
+        <p>@Html.ActionLink("Prenota la tua crociera »", "Prenotazione", "Home", new { @class = "btn btn-primary btn-lg" })</p>
+    }
+</div>
+
+
+<div class="row">
+    <div class="col-md-4">
+        <h2>@ViewBag.Message</h2>
+        <h2> Magnifica crociera nel mediterraneo.</h2>
+
+        <img src="~/Img1/u_mediterraneo.jpeg" width="250" height="150" >
+
+        @if (utente == null)
+        {
+            <p>@Html.ActionLink("Accedi prima di prenotare »", "Login", "Home", new { @class = "btn btn-default" })</p>
+        }
+        else
+        {
+            <p>@Html.ActionLink("Prenota la tua crociera »", "Prenotazione", "Home", new { @class = "btn btn-default" })</p>
+        }
+    </div>
+    <div class="col-md-4">
+        <h2> Spettacolare crociera caraibica.</h2>
+        <img src="~/Img1/caraibi.jpg" width="250" height="150">
+
+        @if (utente == null)
+        {
+            <p>@Html.ActionLink("Accedi prima di prenotare »", "Login", "Home", new { @class = "btn btn-default" })</p>
+        }
+        else
+        {
+            <p>@Html.ActionLink("Prenota la tua crociera »", "Prenotazione", "Home", new { @class = "btn btn-default" })</p>
+        }
+    </div>
+    <div class="col-md-4">
+        <h2> Deliziosa crociera orientale.</h2>
+        <img src="~/Img1/asia.jpg" width="250" height="150">
+
+        @if (utente == null)
+        {
+            <p>@Html.ActionLink("Accedi prima di prenotare »", "Login", "Home", new { @class = "btn btn-default" })</p>
+        }
+        else
+        {
+            <p>@Html.ActionLink("Prenota la tua crociera »", "Prenotazione", "Home", new { @class = "btn btn-default" })</p>
+        }
+    </div>
+</div>

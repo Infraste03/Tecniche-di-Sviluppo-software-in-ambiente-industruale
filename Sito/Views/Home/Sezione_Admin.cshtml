@@ -1,0 +1,77 @@
+﻿
+@{
+    ViewBag.Title = "Sezione_Admin";
+}
+
+<h2>Sezione Admin</h2>
+<p class="lead">SEZIONE AMMINISTRATORE.</p>
+<div>
+    @Html.ValidationMessage("LogOnError", new { @class = "text-danger" })
+</div>
+<table class="table">
+    <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Nome</th>
+        <th scope="col">Località</th>
+        <th scope="col">Data</th>
+        <th scope="col">Capienza</th>
+        <th scope="col">Prezzo</th>
+
+    </tr>
+    @foreach (var crociera in ViewBag.Crociere)
+    {
+        <tr>
+            <td>@crociera.id_crociera  </td>
+            <td>@crociera.nome_nave  </td>
+            <td>@crociera.localita  </td>
+            <td>@crociera.data    </td>
+            <td>@crociera.numero_persone  </td>
+            <td>@crociera.prezzo</td>
+        </tr>
+    }
+</table>
+<table class="table">
+    <tr>
+        <th scope="col">fk_crociera</th>
+        <th scope="col">fk_utente</th>
+        <th scope="col">Numero_Biglietti</th>
+
+    </tr>
+    @foreach (var pa in ViewBag.Partecipanti)
+    {
+        <tr>
+            <td>@pa.fk_crociera  </td>
+            <td>@pa.fk_utente  </td>
+            <td>@pa.Numero_Biglietti  </td>
+        </tr>
+    }
+</table>
+
+<table class="table">
+    <tr>
+        <th scope="col">id_transazione</th>
+        <th scope="col">importo</th>
+        <th scope="col">fk_utente</th>
+        <th scope="col">fk_barca</th>
+        <th scope="col">data</th>
+        <th scope="col">Numero_Tickets</th>
+
+
+
+    </tr>
+    @foreach (var pa in ViewBag.Transazioni)
+    {
+<tr>
+    <td>@pa.id_transazione  </td>
+    <td>@pa.importo  </td>
+    <td>@pa.fk_utente  </td>
+    <td>@pa.fk_barca  </td>
+    <td>@pa.data  </td>
+    <td>@pa.Numero_Tickets </td>
+</tr>
+    }
+</table>
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
